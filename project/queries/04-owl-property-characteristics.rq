@@ -1,0 +1,21 @@
+PREFIX : <http://example.org/luat-doanh-nghiep/>
+
+SELECT ?case ?subject ?predicate ?object
+WHERE {
+  {
+    BIND("TransitiveProperty" AS ?case)
+    BIND(:Mộc_Châu_Milk AS ?subject)
+    BIND(:có_công_ty_mẹ AS ?predicate)
+    BIND(:Vinamilk AS ?object)
+    ?subject ?predicate ?object .
+  }
+  UNION
+  {
+    BIND("SymmetricProperty" AS ?case)
+    BIND(:Đấu_giá_Lạc_Việt AS ?subject)
+    BIND(:hợp_tác_với AS ?predicate)
+    BIND(:Vinamilk AS ?object)
+    ?subject ?predicate ?object .
+  }
+}
+ORDER BY ?case

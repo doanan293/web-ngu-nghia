@@ -1,0 +1,35 @@
+@base <http://example.org/luat-doanh-nghiep/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+# Các cá thể thành viên
+<Tổng_công_ty_SCIC> rdf:type <Cổ_đông> .
+<Đỗ_Thị_Hồng_Hải> rdf:type <Thành_viên_hợp_danh> .
+<UBND_TP_Hà_Nội> rdf:type <Thành_viên> .
+
+# Vinamilk (Sẽ được suy luận là Công_ty_cổ_phần)
+<Vinamilk> rdf:type <Công_ty> ;
+    <Tên_doanh_nghiệp> "Công ty Cổ phần Sữa Việt Nam"@vi ;
+    <có_cổ_đông> <Tổng_công_ty_SCIC> ;
+    <hợp_tác_với> <Đấu_giá_Lạc_Việt> .
+
+# Hanoi Metro (Sẽ được suy luận là Công_ty_TNHH_một_thành_viên)
+<Hanoi_Metro> rdf:type <Công_ty> ;
+    <Tên_doanh_nghiệp> "Công ty TNHH MTV Đường sắt Hà Nội"@vi ;
+    <Mã_số_doanh_nghiệp> "0106924538" ;
+    <có_chủ_sở_hữu> <UBND_TP_Hà_Nội> .
+
+# Công ty Đấu giá Hợp danh Lạc Việt (Sẽ được suy luận là Công_ty_hợp_danh)
+<Đấu_giá_Lạc_Việt> rdf:type <Công_ty> ;
+    <Tên_doanh_nghiệp> "Công ty Đấu giá Hợp danh Lạc Việt"@vi ;
+    <Địa_chỉ_trụ_sở_chính> "Số 49 Văn Cao, Phường Liễu Giai, Quận Ba Đình, Hà Nội"@vi ;
+    <có_thành_viên_hợp_danh> <Đỗ_Thị_Hồng_Hải> .
+
+# Chuỗi công ty con thực tế phục vụ TransitiveProperty
+<VLC> rdf:type <Công_ty> ;
+    <Tên_doanh_nghiệp> "Tổng công ty Chăn nuôi Việt Nam"@vi ;
+    <có_công_ty_mẹ> <Vinamilk> .
+
+<Mộc_Châu_Milk> rdf:type <Công_ty> ;
+    <Tên_doanh_nghiệp> "Công ty Cổ phần Giống bò sữa Mộc Châu"@vi ;
+    <có_công_ty_mẹ> <VLC> .

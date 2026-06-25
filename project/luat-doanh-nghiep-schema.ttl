@@ -1,0 +1,112 @@
+@base <http://example.org/luat-doanh-nghiep/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+# --- Các Lớp Cốt Lõi ---
+<Công_ty> rdf:type rdfs:Class, owl:Class ;
+    rdfs:label "Công ty"@vi ;
+    rdfs:comment "Lớp gốc đại diện cho doanh nghiệp theo Luật Doanh nghiệp Việt Nam 2020."@vi .
+
+<Công_ty_cổ_phần> rdf:type rdfs:Class, owl:Class ;
+    rdfs:subClassOf <Công_ty> ;
+    rdfs:label "Công ty cổ phần"@vi ;
+    owl:equivalentClass [
+        rdf:type owl:Class ;
+        owl:intersectionOf (
+            <Công_ty>
+            [
+                rdf:type owl:Restriction ;
+                owl:onProperty <có_cổ_đông> ;
+                owl:someValuesFrom <Cổ_đông>
+            ]
+        )
+    ] .
+
+<Công_ty_TNHH_một_thành_viên> rdf:type rdfs:Class, owl:Class ;
+    rdfs:subClassOf <Công_ty> ;
+    rdfs:label "Công ty TNHH một thành viên"@vi ;
+    owl:equivalentClass [
+        rdf:type owl:Restriction ;
+        owl:onProperty <có_chủ_sở_hữu> ;
+        owl:hasValue <UBND_TP_Hà_Nội>
+    ] .
+
+<Công_ty_hợp_danh> rdf:type rdfs:Class, owl:Class ;
+    rdfs:subClassOf <Công_ty> ;
+    rdfs:label "Công ty hợp danh"@vi ;
+    owl:equivalentClass [
+        rdf:type owl:Restriction ;
+        owl:onProperty <có_thành_viên_hợp_danh> ;
+        owl:someValuesFrom <Thành_viên_hợp_danh>
+    ] .
+
+# --- Các Lớp Thành viên (Members) ---
+<Thành_viên> rdf:type rdfs:Class, owl:Class ;
+    rdfs:label "Thành viên"@vi ;
+    owl:equivalentClass [
+        rdf:type owl:Class ;
+        owl:unionOf ( <Cổ_đông> <Thành_viên_hợp_danh> )
+    ] ;
+    rdfs:comment "Khái niệm chung chỉ thành viên góp vốn hoặc chủ sở hữu trong doanh nghiệp."@vi .
+
+<Cổ_đông> rdf:type rdfs:Class, owl:Class ;
+    rdfs:subClassOf <Thành_viên> ;
+    rdfs:label "Cổ đông"@vi ;
+    rdfs:comment "Thành viên sở hữu ít nhất một cổ phần của công ty cổ phần."@vi .
+
+<Thành_viên_hợp_danh> rdf:type rdfs:Class, owl:Class ;
+    rdfs:subClassOf <Thành_viên> ;
+    rdfs:label "Thành viên hợp danh"@vi ;
+    rdfs:comment "Thành viên chịu trách nhiệm vô hạn trong công ty hợp danh."@vi .
+
+# --- Các Thuộc tính (Properties) ---
+<Tên_doanh_nghiệp> rdf:type rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "tên doanh nghiệp"@vi .
+
+<Mã_số_doanh_nghiệp> rdf:type rdf:Property, owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "mã số doanh nghiệp"@vi .
+
+<Địa_chỉ_trụ_sở_chính> rdf:type rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "địa chỉ trụ sở chính"@vi .
+
+# --- Phân cấp Thuộc tính Thành viên (RDFS subPropertyOf) ---
+<có_thành_viên> rdf:type rdf:Property, owl:ObjectProperty ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range <Thành_viên> ;
+    rdfs:label "có thành viên"@vi .
+
+<có_cổ_đông> rdf:type rdf:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf <có_thành_viên> ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range <Cổ_đông> ;
+    rdfs:label "có cổ đông"@vi .
+
+<có_chủ_sở_hữu> rdf:type rdf:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf <có_thành_viên> ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range <Thành_viên> ;
+    rdfs:label "có chủ sở hữu"@vi .
+
+<có_thành_viên_hợp_danh> rdf:type rdf:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf <có_thành_viên> ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range <Thành_viên_hợp_danh> ;
+    rdfs:label "có thành viên hợp danh"@vi .
+
+# --- OWL Object Properties ---
+<có_công_ty_mẹ> rdf:type rdf:Property, owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range <Công_ty> ;
+    rdfs:label "có công ty mẹ"@vi .
+
+<hợp_tác_với> rdf:type rdf:Property, owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain <Công_ty> ;
+    rdfs:range <Công_ty> ;
+    rdfs:label "hợp tác với"@vi .

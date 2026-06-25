@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mxfile host="65bd71144e">
+    <diagram name="Luật Doanh nghiệp Unified Schema &amp; Data" id="0">
+        <mxGraphModel dx="2876" dy="388" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1550" pageHeight="780" math="0" shadow="0">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+                <mxCell id="class_root" value="Công ty" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="40" width="160" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="class_cp" value="Công ty cổ phần" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="160" width="160" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="class_tnhh1" value="Công ty TNHH một thành viên" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="160" width="220" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="class_hd" value="Công ty hợp danh" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="780" y="160" width="160" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="inter_cp" value="∩" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;dashed=1;dashPattern=5 4;fontSize=11;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="280" width="50" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="rest_cp" value="owl:Restriction" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;dashed=1;dashPattern=5 4;fontSize=11;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="280" width="100" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="rest_tnhh1" value="owl:Restriction" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;dashed=1;dashPattern=5 4;fontSize=11;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="280" width="100" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="rest_hd" value="owl:Restriction" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;dashed=1;dashPattern=5 4;fontSize=11;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="810" y="280" width="100" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="prop_shareholder" value="có cổ đông" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="400" width="120" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="prop_owner" value="có chủ sở hữu" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="400" width="120" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="prop_member" value="có thành viên hợp danh" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="400" width="120" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="class_shareholder" value="Cổ đông" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="400" width="120" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="class_gp" value="Thành viên hợp danh" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="910" y="400" width="140" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="class_parent" value="Thành viên" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="530" width="160" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="union_member" value="∪" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;dashed=1;dashPattern=5 4;fontSize=11;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="705" y="440" width="50" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="prop_parent" value="có thành viên" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="550" width="160" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="ind_vinamilk" value="Vinamilk" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="280" width="100" height="46" as="geometry" />
+                </mxCell>
+                <mxCell id="ind_vlc" value="VLC" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="190" width="100" height="46" as="geometry" />
+                </mxCell>
+                <mxCell id="ind_moc_chau" value="Mộc Châu Milk" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="100" width="110" height="46" as="geometry" />
+                </mxCell>
+                <mxCell id="ind_hanoi_metro" value="Hanoi Metro" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="300" width="100" height="46" as="geometry" />
+                </mxCell>
+                <mxCell id="lit_metro_id" value="0106924538" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="220" width="100" height="30" as="geometry" />
+                </mxCell>
+                <mxCell id="ind_lac_viet" value="Đấu giá Lạc Việt" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="1020" y="130" width="110" height="46" as="geometry" />
+                </mxCell>
+                <mxCell id="ind_scic" value="SCIC" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="580" width="110" height="46" as="geometry" />
+                </mxCell>
+                <mxCell id="ind_do_thi_hong_hai" value="Đỗ Thị Hồng Hải" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="1120" y="550" width="130" height="46" as="geometry" />
+                </mxCell>
+                <mxCell id="ind_ubnd_hn" value="UBND TP. Hà Nội" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#111111;strokeWidth=1.5;fontSize=12;fontColor=#111111;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="400" width="140" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="e_sub_tnhh1" value="rdfs:subClassOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_tnhh1" target="class_root">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_sub_hd" value="rdfs:subClassOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_hd" target="class_root">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_sub_cp" value="rdfs:subClassOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_cp" target="class_root">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_eq_cp" value="owl:equivalentClass" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_cp" target="inter_cp">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_inter_cp_root" value="owl:intersectionOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;dashed=1;dashPattern=5 4;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="inter_cp" target="class_root">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_inter_cp_rest" value="owl:intersectionOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;dashed=1;dashPattern=5 4;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="inter_cp" target="rest_cp">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_on_cp" value="owl:onProperty" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="rest_cp" target="prop_shareholder">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_some_cp" value="owl:someValuesFrom" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="rest_cp" target="class_shareholder">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_eq_tnhh1" value="owl:equivalentClass" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_tnhh1" target="rest_tnhh1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_on_tnhh1" value="owl:onProperty" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="rest_tnhh1" target="prop_owner">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_val_tnhh1" value="owl:hasValue" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="rest_tnhh1" target="ind_ubnd_hn">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_eq_hd" value="owl:equivalentClass" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_hd" target="rest_hd">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_on_hd" value="owl:onProperty" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="rest_hd" target="prop_member">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_some_hd" value="owl:someValuesFrom" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="rest_hd" target="class_gp">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_sp_shareholder" value="rdfs:subPropertyOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="prop_shareholder" target="prop_parent">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_sp_owner" value="rdfs:subPropertyOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="prop_owner" target="prop_parent">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_sp_member" value="rdfs:subPropertyOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="prop_member" target="prop_parent">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_sc_shareholder" value="rdfs:subClassOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_shareholder" target="class_parent">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_sc_gp" value="rdfs:subClassOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_gp" target="class_parent">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_range_parent" value="rdfs:range" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="prop_parent" target="class_parent">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_eq_parent" value="owl:equivalentClass" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="class_parent" target="union_member">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_union_shareholder" value="owl:unionOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;dashed=1;dashPattern=5 4;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="union_member" target="class_shareholder">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_union_gp" value="owl:unionOf" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;dashed=1;dashPattern=5 4;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="union_member" target="class_gp">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_fact_shareholder" value="có cổ đông" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ind_vinamilk" target="ind_scic">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_fact_owner" value="có chủ sở hữu" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ind_hanoi_metro" target="ind_ubnd_hn">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_fact_member" value="có thành viên hợp danh" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ind_lac_viet" target="ind_do_thi_hong_hai">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_fact_id" value="Mã_số_doanh_nghiệp&amp;#xa;&amp;lt;&amp;lt;owl:FunctionalProperty&amp;gt;&amp;gt;" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="ind_hanoi_metro" target="lit_metro_id">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_type_scic" value="rdf:type" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="ind_scic" target="class_shareholder">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_type_do_thi_hong_hai" value="rdf:type" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="ind_do_thi_hong_hai" target="class_gp">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_type_vinamilk" value="rdf:type" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="ind_vinamilk" target="class_cp">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_type_hanoi_metro" value="rdf:type" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="ind_hanoi_metro" target="class_tnhh1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_type_lac_viet" value="rdf:type" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;" edge="1" parent="1" source="ind_lac_viet" target="class_hd">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_fact_sym_left" value="hợp tác với&amp;#xa;&amp;lt;&amp;lt;owl:SymmetricProperty&amp;gt;&amp;gt;" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;entryX=0.5;entryY=0;" edge="1" parent="1" source="ind_vinamilk" target="ind_lac_viet">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="60" y="20" />
+                            <mxPoint x="1075" y="20" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_fact_trans_1" value="có công ty mẹ&amp;#xa;&amp;lt;&amp;lt;owl:TransitiveProperty&amp;gt;&amp;gt;" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ind_moc_chau" target="ind_vlc">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e_fact_trans_2" value="có công ty mẹ&amp;#xa;&amp;lt;&amp;lt;owl:TransitiveProperty&amp;gt;&amp;gt;" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#111111;strokeWidth=1.2;endArrow=classic;endFill=1;fontSize=10;fontColor=#444444;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ind_vlc" target="ind_vinamilk">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

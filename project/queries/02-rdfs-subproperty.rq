@@ -1,0 +1,12 @@
+PREFIX : <http://example.org/luat-doanh-nghiep/>
+
+SELECT ?company ?member
+WHERE {
+  VALUES ?company {
+    :Vinamilk
+    :Hanoi_Metro
+    :Đấu_giá_Lạc_Việt
+  }
+  ?company :có_thành_viên ?member .
+}
+ORDER BY ?company ?member

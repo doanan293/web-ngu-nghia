@@ -1,0 +1,92 @@
+# RDFS subclass inheritance
+[rdfs-subclass:
+    (?sub rdfs:subClassOf ?super)
+    (?x rdf:type ?sub)
+    ->
+    (?x rdf:type ?super)
+]
+
+# RDFS subproperty inheritance
+[rdfs-subproperty:
+    (?sub rdfs:subPropertyOf ?super)
+    (?s ?sub ?o)
+    ->
+    (?s ?super ?o)
+]
+
+# OWL transitive properties
+[owl-transitive:
+    (?p rdf:type owl:TransitiveProperty)
+    (?a ?p ?b)
+    (?b ?p ?c)
+    ->
+    (?a ?p ?c)
+]
+
+# OWL symmetric properties
+[owl-symmetric:
+    (?p rdf:type owl:SymmetricProperty)
+    (?a ?p ?b)
+    ->
+    (?b ?p ?a)
+]
+
+# OWL hasValue equivalent-class restriction
+[owl-has-value:
+    (?class owl:equivalentClass ?restriction)
+    (?restriction rdf:type owl:Restriction)
+    (?restriction owl:onProperty ?property)
+    (?restriction owl:hasValue ?value)
+    (?x ?property ?value)
+    ->
+    (?x rdf:type ?class)
+]
+
+# OWL someValuesFrom equivalent-class restriction
+[owl-some-values-from:
+    (?class owl:equivalentClass ?restriction)
+    (?restriction rdf:type owl:Restriction)
+    (?restriction owl:onProperty ?property)
+    (?restriction owl:someValuesFrom ?rangeClass)
+    (?x ?property ?value)
+    (?value rdf:type ?rangeClass)
+    ->
+    (?x rdf:type ?class)
+]
+
+# OWL unionOf with 2-member RDF list (Thành_viên = Cổ_đông ∪ Thành_viên_hợp_danh)
+[owl-union-member-1:
+    (?class owl:equivalentClass ?unionClass)
+    (?unionClass owl:unionOf ?list)
+    (?list rdf:first ?memberClass)
+    (?x rdf:type ?memberClass)
+    ->
+    (?x rdf:type ?class)
+]
+
+[owl-union-member-2:
+    (?class owl:equivalentClass ?unionClass)
+    (?unionClass owl:unionOf ?list)
+    (?list rdf:rest ?rest1)
+    (?rest1 rdf:first ?memberClass)
+    (?x rdf:type ?memberClass)
+    ->
+    (?x rdf:type ?class)
+]
+
+# OWL intersectionOf với 1 Class và 1 Restriction (Công_ty_cổ_phần = Công_ty ∩ Restriction[some Cổ_đông])
+[owl-intersection-class-restriction:
+    (?class owl:equivalentClass ?intersectionClass)
+    (?intersectionClass owl:intersectionOf ?list)
+    (?list rdf:first ?classA)
+    (?list rdf:rest ?rest1)
+    (?rest1 rdf:first ?restriction)
+    (?restriction rdf:type owl:Restriction)
+    (?restriction owl:onProperty ?property)
+    (?restriction owl:someValuesFrom ?rangeClass)
+    (?x rdf:type ?classA)
+    (?x ?property ?y)
+    (?y rdf:type ?rangeClass)
+    ->
+    (?x rdf:type ?class)
+]

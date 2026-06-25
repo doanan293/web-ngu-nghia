@@ -1,0 +1,13 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://example.org/luat-doanh-nghiep/>
+
+SELECT ?company
+WHERE {
+  VALUES ?company {
+    :Vinamilk
+    :Hanoi_Metro
+    :Đấu_giá_Lạc_Việt
+  }
+  ?company rdf:type :Công_ty .
+}
+ORDER BY ?company

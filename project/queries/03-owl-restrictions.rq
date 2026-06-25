@@ -1,0 +1,13 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://example.org/luat-doanh-nghiep/>
+
+SELECT ?company ?inferredClass
+WHERE {
+  VALUES ?inferredClass {
+    :Công_ty_cổ_phần
+    :Công_ty_hợp_danh
+    :Công_ty_TNHH_một_thành_viên
+  }
+  ?company rdf:type ?inferredClass .
+}
+ORDER BY ?company ?inferredClass
