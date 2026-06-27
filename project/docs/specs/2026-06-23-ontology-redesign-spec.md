@@ -1,6 +1,6 @@
-# Spec thiết kế: Tích hợp chặt chẽ RDFS và OWL - Luật Doanh nghiệp Việt Nam
+# Spec thiết kế: Tích hợp chặt chẽ RDFS và OWL - chủ đề doanh nghiệp Việt Nam
 
-Tài liệu này đặc tả thiết kế cấu trúc lại mô hình ontology Luật Doanh nghiệp nhằm tạo sự liên kết chặt chẽ ("xuyên suốt") giữa RDFS và OWL. Các lớp doanh nghiệp cốt lõi được định nghĩa và ràng buộc trực tiếp bởi các thuộc tính OWL ẩn danh (Restriction Classes), tương tự như mô hình mẫu của thế giới động vật.
+Tài liệu này đặc tả thiết kế cấu trúc lại mô hình ontology chủ đề doanh nghiệp nhằm tạo sự liên kết chặt chẽ ("xuyên suốt") giữa RDFS và OWL. Các lớp doanh nghiệp cốt lõi được định nghĩa và ràng buộc trực tiếp bởi các thuộc tính OWL ẩn danh (Restriction Classes), tương tự như mô hình mẫu của thế giới động vật.
 
 ---
 
@@ -45,7 +45,7 @@ Các lớp RDFS cốt lõi được định nghĩa tương đương (`owl:equiva
 
 ## 2. Thiết kế Dữ liệu mẫu (Data) và Suy luận (Reasoning)
 
-Trong tệp `luat-doanh-nghiep-data.ttl`, các doanh nghiệp sẽ không được gán trực tiếp kiểu lớp cụ thể mà kiểu lớp sẽ được tự động suy ra bởi bộ suy luận Jena:
+Trong tệp `ca-map-data.ttl`, các doanh nghiệp sẽ không được gán trực tiếp kiểu lớp cụ thể mà kiểu lớp sẽ được tự động suy ra bởi bộ suy luận Jena:
 
 ### 2.1. Đối tượng bổ trợ
 - `Tổng_công_ty_SCIC` rdf:type `Cổ_đông`
@@ -110,8 +110,8 @@ Trong tệp `rdf.drawio` mới:
 ---
 
 ## 4. Kế hoạch Thực hiện
-1. Cập nhật `luat-doanh-nghiep-schema.ttl`.
-2. Cập nhật `luat-doanh-nghiep-data.ttl`.
-3. Viết lại tài liệu tổng quan `luat-doanh-nghiep-vn.md`.
+1. Cập nhật `ca-map-schema.ttl`.
+2. Cập nhật `ca-map-data.ttl`.
+3. Viết lại tài liệu tổng quan `chu-de-doanh-nghiep-vn.md`.
 4. Tạo tệp vẽ đồ thị mới `rdf.drawio` chứa đầy đủ sơ đồ tích hợp.
 5. Kiểm tra chạy thử bộ suy luận Apache Jena / Fuseki để xác nhận các cá thể được suy luận tự động đúng kiểu lớp.

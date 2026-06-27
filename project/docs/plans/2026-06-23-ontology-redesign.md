@@ -1,8 +1,8 @@
-# Tích hợp RDFS và OWL Luật Doanh nghiệp Implementation Plan
+# Tích hợp RDFS và OWL chủ đề doanh nghiệp Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Cấu trúc lại mô hình ontology Luật Doanh nghiệp Việt Nam để RDFS và OWL tích hợp chặt chẽ ("xuyên suốt"), đồng thời vẽ lại đồ thị draw.io và cập nhật dữ liệu để kiểm chứng bằng bộ suy luận Jena Fuseki.
+**Goal:** Cấu trúc lại mô hình ontology chủ đề doanh nghiệp Việt Nam để RDFS và OWL tích hợp chặt chẽ ("xuyên suốt"), đồng thời vẽ lại đồ thị draw.io và cập nhật dữ liệu để kiểm chứng bằng bộ suy luận Jena Fuseki.
 
 **Architecture:** Sử dụng các lớp ràng buộc OWL ẩn danh (Restriction Classes) làm định nghĩa tương đương (`owl:equivalentClass`) cho các lớp cốt lõi (`Công_ty_cổ_phần`, `Công_ty_hợp_danh`, `Công_ty_TNHH_một_thành_viên`). Các cá thể trong dữ liệu sẽ không khai báo kiểu lớp cụ thể mà để bộ suy luận tự động phân loại.
 
@@ -13,14 +13,14 @@
 ### Task 1: Cập nhật Schema OWL & RDFS
 
 **Files:**
-- Modify: `luat-doanh-nghiep-schema.ttl`
+- Modify: `ca-map-schema.ttl`
 
 - [ ] **Step 1: Cập nhật định nghĩa thuộc tính và lớp mới trong schema**
-  Thay thế nội dung tệp `luat-doanh-nghiep-schema.ttl` để bao gồm các thuộc tính mới (`phát_hành`, `có_thành_viên`, `có_chủ_sở_hữu`), các lớp đối tượng bổ trợ (`Cổ_phiếu`, `Thành_viên_hợp_danh`) và liên kết các lớp cốt lõi qua `owl:equivalentClass` với các restriction tương ứng.
+  Thay thế nội dung tệp `ca-map-schema.ttl` để bao gồm các thuộc tính mới (`phát_hành`, `có_thành_viên`, `có_chủ_sở_hữu`), các lớp đối tượng bổ trợ (`Cổ_phiếu`, `Thành_viên_hợp_danh`) và liên kết các lớp cốt lõi qua `owl:equivalentClass` với các restriction tương ứng.
   
-  Nội dung mới của `luat-doanh-nghiep-schema.ttl`:
+  Nội dung mới của `ca-map-schema.ttl`:
   ```turtle
-  @base <http://example.org/luat-doanh-nghiep/> .
+  @base <http://example.org/ca-map/> .
   @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
   @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
   @prefix owl:  <http://www.w3.org/2002/07/owl#> .
@@ -28,7 +28,7 @@
   # --- Các Lớp Cốt Lõi ---
   <Công_ty> rdf:type rdfs:Class, owl:Class ;
       rdfs:label "Công ty"@vi ;
-      rdfs:comment "Lớp gốc đại diện cho doanh nghiệp theo Luật Doanh nghiệp Việt Nam 2020."@vi .
+      rdfs:comment "Lớp gốc đại diện cho doanh nghiệp theo chủ đề doanh nghiệp Việt Nam."@vi .
 
   <Công_ty_cổ_phần> rdf:type rdfs:Class, owl:Class ;
       rdfs:subClassOf <Công_ty> ;
@@ -160,7 +160,7 @@
 
 - [ ] **Step 2: Commit file Schema**
   ```bash
-  git add luat-doanh-nghiep-schema.ttl
+  git add ca-map-schema.ttl
   git commit -m "schema: update RDFS and OWL definitions to strongly tie classes to restrictions"
   ```
 
@@ -169,14 +169,14 @@
 ### Task 2: Cập nhật Dữ liệu RDF (Data)
 
 **Files:**
-- Modify: `luat-doanh-nghiep-data.ttl`
+- Modify: `ca-map-data.ttl`
 
 - [ ] **Step 1: Cập nhật dữ liệu cá thể loại bỏ định nghĩa lớp thủ công**
-  Thay đổi tệp `luat-doanh-nghiep-data.ttl` để chỉ khai báo các cá thể có lớp là `Công_ty`, kết hợp các thuộc tính tương ứng để kích hoạt suy luận.
+  Thay đổi tệp `ca-map-data.ttl` để chỉ khai báo các cá thể có lớp là `Công_ty`, kết hợp các thuộc tính tương ứng để kích hoạt suy luận.
 
-  Nội dung mới của `luat-doanh-nghiep-data.ttl`:
+  Nội dung mới của `ca-map-data.ttl`:
   ```turtle
-  @base <http://example.org/luat-doanh-nghiep/> .
+  @base <http://example.org/ca-map/> .
   @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
   # Các cá thể hỗ trợ
@@ -214,7 +214,7 @@
 
 - [ ] **Step 2: Commit file Data**
   ```bash
-  git add luat-doanh-nghiep-data.ttl
+  git add ca-map-data.ttl
   git commit -m "data: update individual definitions to rely on OWL properties for class inference"
   ```
 
@@ -231,7 +231,7 @@
   Nội dung mới của `queries/03-owl-restrictions.rq`:
   ```sparql
   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-  PREFIX : <http://example.org/luat-doanh-nghiep/>
+  PREFIX : <http://example.org/ca-map/>
 
   SELECT ?company ?inferredClass
   WHERE {
@@ -265,11 +265,11 @@
 - [ ] **Step 2: Nạp schema và data mới**
   Nạp schema mới:
   ```bash
-  curl -u admin:admin -X POST -H "Content-Type: text/turtle; charset=utf-8" --data-binary @luat-doanh-nghiep-schema.ttl "http://localhost:3030/dataset/data"
+  curl -u admin:admin -X POST -H "Content-Type: text/turtle; charset=utf-8" --data-binary @ca-map-schema.ttl "http://localhost:3030/dataset/data"
   ```
   Nạp data mới:
   ```bash
-  curl -u admin:admin -X POST -H "Content-Type: text/turtle; charset=utf-8" --data-binary @luat-doanh-nghiep-data.ttl "http://localhost:3030/dataset/data"
+  curl -u admin:admin -X POST -H "Content-Type: text/turtle; charset=utf-8" --data-binary @ca-map-data.ttl "http://localhost:3030/dataset/data"
   ```
 
 - [ ] **Step 3: Chạy thử các truy vấn kiểm tra suy luận**
@@ -290,10 +290,10 @@
 ### Task 5: Cập nhật tài liệu thuyết minh và Đồ thị Draw.io
 
 **Files:**
-- Modify: `luat-doanh-nghiep-vn.md`
+- Modify: `chu-de-doanh-nghiep-vn.md`
 - Create/Modify: `rdf.drawio`
 
-- [ ] **Step 1: Viết lại thuyết minh trong luat-doanh-nghiep-vn.md**
+- [ ] **Step 1: Viết lại thuyết minh trong chu-de-doanh-nghiep-vn.md**
   Cập nhật mục mô tả OWL để phản ánh đúng cấu trúc liên kết mới và cơ chế suy luận.
   
   Đoạn thay đổi chính ở Mục 5:
@@ -312,6 +312,6 @@
 
 - [ ] **Step 3: Commit tài liệu và đồ thị**
   ```bash
-  git add luat-doanh-nghiep-vn.md rdf.drawio
+  git add chu-de-doanh-nghiep-vn.md rdf.drawio
   git commit -m "docs: rewrite enterprise law explanation and update draw.io diagram"
   ```

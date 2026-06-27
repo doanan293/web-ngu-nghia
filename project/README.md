@@ -1,8 +1,10 @@
-# Luật Doanh nghiệp Việt Nam - RDF/OWL Fuseki Demo
+# Chủ đề doanh nghiệp Việt Nam - RDF/OWL Fuseki Demo
 
 ## Mục tiêu
 
-Dự án mô hình hóa một phần Luật Doanh nghiệp Việt Nam bằng RDF, RDFS và OWL. Apache Jena Fuseki được dùng để nạp mô hình và quan sát kết quả suy diễn bằng SPARQL.
+Dự án mô hình hóa một phần chủ đề doanh nghiệp Việt Nam bằng RDF, RDFS và OWL. Apache Jena Fuseki được dùng để nạp mô hình và quan sát kết quả suy diễn bằng SPARQL.
+
+Namespace của mô hình dùng tên nhóm Cá Mập: `http://example.org/ca-map/`.
 
 ## RDF, RDFS và OWL
 
@@ -14,10 +16,10 @@ OWL không thuộc RDFS. OWL được xây trên nền RDF/RDFS và dùng thêm 
 
 ## Tệp chính
 
-- `luat-doanh-nghiep-schema.ttl`: định nghĩa lớp, thuộc tính, RDFS và OWL.
-- `luat-doanh-nghiep-data.ttl`: dữ kiện cá thể.
+- `ca-map-schema.ttl`: định nghĩa lớp, thuộc tính, RDFS và OWL.
+- `ca-map-data.ttl`: dữ kiện cá thể.
 - `fuseki-config.ttl`: cấu hình dataset `/dataset` có suy diễn.
-- `luat-doanh-nghiep.rules`: luật suy diễn Jena cho phần demo.
+- `ca-map.rules`: luật suy diễn Jena cho phần demo.
 - `queries/`: các truy vấn SPARQL kiểm chứng.
 - `rdf.drawio`: sơ đồ RDF của bài nộp.
 
@@ -56,7 +58,7 @@ Nạp schema:
 ```bash
 curl -u admin:admin -X POST \
   -H "Content-Type: text/turtle; charset=utf-8" \
-  --data-binary @luat-doanh-nghiep-schema.ttl \
+  --data-binary @ca-map-schema.ttl \
   "http://localhost:3030/dataset/data"
 ```
 
@@ -65,7 +67,7 @@ Nạp data:
 ```bash
 curl -u admin:admin -X POST \
   -H "Content-Type: text/turtle; charset=utf-8" \
-  --data-binary @luat-doanh-nghiep-data.ttl \
+  --data-binary @ca-map-data.ttl \
   "http://localhost:3030/dataset/data"
 ```
 
@@ -141,5 +143,5 @@ Sau đó chạy lại `docker compose up -d` và nạp lại hai file Turtle.
 ## Ghi chú
 
 - Nếu nạp dữ liệu nhiều lần, kết quả query có thể nhìn như bị lặp tùy hình dạng query.
-- Nếu không thấy inferred triples, kiểm tra container đã mount đúng `fuseki-config.ttl` và `luat-doanh-nghiep.rules`.
-- Sơ đồ dùng file `rdf.drawio`. Phần OWL được giải thích bằng lời trong `luat-doanh-nghiep-vn.md` và kiểm chứng bằng Fuseki/SPARQL.
+- Nếu không thấy inferred triples, kiểm tra container đã mount đúng `fuseki-config.ttl` và `ca-map.rules`.
+- Sơ đồ dùng file `rdf.drawio`. Phần OWL được giải thích bằng lời trong `chu-de-doanh-nghiep-vn.md` và kiểm chứng bằng Fuseki/SPARQL.

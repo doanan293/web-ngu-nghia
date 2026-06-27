@@ -9,8 +9,8 @@ DATASET="${DATASET:-dataset}"
 ADMIN_USER="${ADMIN_USER:-admin}"
 ADMIN_PASSWORD="${ADMIN_PASSWORD:-admin}"
 
-SCHEMA_FILE="luat-doanh-nghiep-schema.ttl"
-DATA_FILE="luat-doanh-nghiep-data.ttl"
+SCHEMA_FILE="ca-map-schema.ttl"
+DATA_FILE="ca-map-data.ttl"
 
 for file in docker-compose.yml "$SCHEMA_FILE" "$DATA_FILE"; do
   if [[ ! -f "$file" ]]; then

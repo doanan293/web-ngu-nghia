@@ -1,4 +1,4 @@
-PREFIX : <http://example.org/luat-doanh-nghiep/>
+PREFIX : <http://example.org/ca-map/>
 
 SELECT ?company ?member
 WHERE {

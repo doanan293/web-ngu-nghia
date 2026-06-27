@@ -1,4 +1,4 @@
-@base <http://example.org/luat-doanh-nghiep/> .
+@base <http://example.org/ca-map/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
@@ -6,7 +6,7 @@
 # --- Các Lớp Cốt Lõi ---
 <Công_ty> rdf:type rdfs:Class, owl:Class ;
     rdfs:label "Công ty"@vi ;
-    rdfs:comment "Lớp gốc đại diện cho doanh nghiệp theo Luật Doanh nghiệp Việt Nam 2020."@vi .
+    rdfs:comment "Lớp gốc đại diện cho doanh nghiệp theo chủ đề doanh nghiệp Việt Nam."@vi .
 
 <Công_ty_cổ_phần> rdf:type rdfs:Class, owl:Class ;
     rdfs:subClassOf <Công_ty> ;

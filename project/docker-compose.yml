@@ -9,8 +9,8 @@ services:
     ports:
       - "3030:3030"
     volumes:
-      - ./fuseki-config.ttl:/fuseki/configuration/luat-doanh-nghiep.ttl:ro
-      - ./luat-doanh-nghiep.rules:/fuseki/luat-doanh-nghiep.rules:ro
+      - ./fuseki-config.ttl:/fuseki/configuration/ca-map.ttl:ro
+      - ./ca-map.rules:/fuseki/ca-map.rules:ro
       - fuseki-db:/fuseki/databases
 
 volumes:
